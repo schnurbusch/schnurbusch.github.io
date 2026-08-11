@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HintOnce, first time hints with one line of code | Schnurbusch Games</title>
+<meta name="description" content="HintOnce shows a first time hint in Unity with a single line of code. No prefab, no canvas, no manager. Free, full C# source.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Schnurbusch <span>Games</span></a>
+    <nav class="site-nav">
+      <a href="index.html#tools">Tools</a>
+      <a href="index.html#games">Games</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="product-head">
+    <h1>HintOnce</h1>
+    <p class="tagline">First time hints with one line of code. Free, with full C# source.</p>
+  </div>
+
+  <div class="product-shot">
+    <img src="img/hintonce.png" alt="HintOnce cover art" width="630" height="500">
+  </div>
+
+  <div class="prose">
+
+    <p>Every game has to explain itself the first time a player opens the shop, the map
+       or the inventory. Building that normally means a prefab, a canvas, a manager and
+       a flag that remembers whether the player has seen it, all for a card with two
+       lines of text.</p>
+
+    <p>HintOnce is that card, minus the work:</p>
+
+    <pre class="code"><code>Hint.Show("first_shop", "The Shop", "Spend coins on upgrades here.");</code></pre>
+
+    <p>That is the whole integration. The first time this line runs, a styled hint card
+       appears over your game. Every later time it does nothing. There is no prefab to
+       place and no canvas to configure: the overlay builds itself when it is first
+       needed and survives scene loads.</p>
+
+    <h3>What you get</h3>
+    <ul>
+      <li>A one line API, which is the entire integration</li>
+      <li>Shows once per id, remembered across sessions</li>
+      <li>Optional callback that also fires for hints already seen, so coroutine chains
+          never stall</li>
+      <li>Several hints fired in the same frame queue up instead of overwriting each
+          other</li>
+      <li>Full theming: colors, badge and button labels, card size and sorting order,
+          with dark and light themes included</li>
+      <li>Events for audio and analytics, with no dependency on any specific audio
+          system</li>
+      <li>Reset for a single hint and reset all for a new game, plus an editor command</li>
+      <li>Interactive demo that builds its user interface at runtime</li>
+      <li>Full C# source, no DLLs, no external dependencies</li>
+    </ul>
+
+    <h3>What it is not</h3>
+    <p>A tutorial framework. There are no arrows pointing at buttons, no multi step
+       tours and no highlight cut outs. It covers the common case, explaining one thing
+       once, in a single line.</p>
+
+    <h3>Requirements</h3>
+    <p>Unity 6 or newer with uGUI and TextMeshPro, both of which ship with Unity 6. It
+       works on all platforms including WebGL and mobile, with both input backends.</p>
+
+    <p>Extracted from my shipped game Famechaser, where it explains day planning, the
+       studio and the shop the first time each is opened.</p>
+
+  </div>
+
+  <div class="availability">
+    <h2>Where to get it</h2>
+    <ul>
+      <li>
+        <span class="where"><a href="https://schnurbusch.itch.io/hintonce">itch.io</a></span>
+        <span class="status">available now, free</span>
+      </li>
+      <li>
+        <span class="where">Unity Asset Store</span>
+        <span class="status">in review</span>
+      </li>
+    </ul>
+  </div>
+
+  <a class="back" href="index.html">All tools</a>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>Schnurbusch Games, Daniel Schnurbusch</span>
+    <span><a href="mailto:daniel.schnurbusch@web.de">daniel.schnurbusch@web.de</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

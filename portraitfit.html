@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PortraitFit, portrait WebGL template for Unity | Schnurbusch Games</title>
+<meta name="description" content="PortraitFit is a Unity WebGL template for portrait games. Clean letterbox bars on desktop, full screen on phones, no distortion.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Schnurbusch <span>Games</span></a>
+    <nav class="site-nav">
+      <a href="index.html#tools">Tools</a>
+      <a href="index.html#games">Games</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="product-head">
+    <h1>PortraitFit</h1>
+    <p class="tagline">Ship your portrait Unity game on the web without distortion.</p>
+  </div>
+
+  <div class="product-shot">
+    <img src="img/portraitfit.png" alt="PortraitFit cover art" width="630" height="500">
+  </div>
+
+  <div class="prose">
+
+    <p>Your Unity game is portrait, built for phones at 9:16, but Unity's default WebGL
+       page assumes landscape. On the web the result is a game that is squeezed,
+       distorted or tiny. PortraitFit fixes that with one file.</p>
+
+    <h3>What it does</h3>
+    <ul>
+      <li>On desktop browsers your game renders as a centered portrait column with clean
+          letterbox bars, with no distortion</li>
+      <li>On phones the game fills the whole screen, or strictly keeps its ratio,
+          whichever you choose</li>
+      <li>Minimal loading screen with title and progress bar, colors configurable</li>
+      <li>Optional built in fullscreen button for self hosting, since portals usually
+          provide their own</li>
+    </ul>
+
+    <h3>Setup in three steps</h3>
+    <ul>
+      <li>Import the package, or copy one folder into your project</li>
+      <li>Player Settings, then Resolution and Presentation, then WebGL Template,
+          then PortraitFit</li>
+      <li>Build</li>
+    </ul>
+
+    <h3>Configuration</h3>
+    <p>Everything sits in two clearly marked config blocks at the top of
+       <code>index.html</code>: aspect ratio, which defaults to 9:16 but accepts any
+       ratio, fill behavior on phones, and the colors for background, bars and loading
+       screen. Plain HTML, CSS and JavaScript, no build tools and no dependencies.</p>
+
+    <h3>Battle tested</h3>
+    <p>This template ships with my own game Famechaser, on desktop and mobile.</p>
+
+    <h3>Requirements</h3>
+    <p>Built and tested with Unity 6. The template mechanism itself works the same way
+       from Unity 2020 onward. It works anywhere your <code>index.html</code> is served
+       directly, on your own site or on most portals. Portals that wrap games in their
+       own player ignore custom templates entirely, which is a platform limitation
+       rather than a PortraitFit one.</p>
+
+  </div>
+
+  <div class="availability">
+    <h2>Where to get it</h2>
+    <ul>
+      <li>
+        <span class="where"><a href="https://schnurbusch.itch.io/portraitfit">itch.io</a></span>
+        <span class="status">available now</span>
+      </li>
+      <li>
+        <span class="where">Unity Asset Store</span>
+        <span class="status">in review</span>
+      </li>
+    </ul>
+  </div>
+
+  <a class="back" href="index.html">All tools</a>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>Schnurbusch Games, Daniel Schnurbusch</span>
+    <span><a href="mailto:daniel.schnurbusch@web.de">daniel.schnurbusch@web.de</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+/* Schnurbusch Games, shared stylesheet.
+   Palette matches the itch.io storefront so the whole brand reads as one thing. */
+
+:root {
+  --bg: #0f171b;
+  --panel: #16242c;
+  --panel-2: #1b2f39;
+  --border: #2c414c;
+  --text: #e6edf0;
+  --muted: #9fb2bc;
+  --accent: #59d9f2;
+  --accent-ink: #06222b;
+  --radius: 10px;
+  --maxw: 900px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); }
+a:hover { color: #8fe8ff; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+
+.site-head {
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, #12202a 0%, var(--bg) 100%);
+}
+
+.site-head .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 24px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand span { color: var(--accent); }
+
+.site-nav {
+  margin-left: auto;
+  display: flex;
+  gap: 20px;
+  font-size: 15px;
+}
+.site-nav a { text-decoration: none; }
+.site-nav a:hover { text-decoration: underline; }
+
+/* Hero */
+
+.hero { padding: 56px 0 12px; }
+
+.hero h1 {
+  margin: 0 0 14px;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.2;
+}
+
+.hero p {
+  margin: 0 0 12px;
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+/* Sections */
+
+section { padding: 40px 0; }
+
+h2 {
+  font-size: 22px;
+  margin: 0 0 6px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-note {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0 0 24px;
+}
+
+/* Product grid */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .15s ease, transform .15s ease;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+.card .shot {
+  background: #0c1418;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+.card h3 a { text-decoration: none; color: var(--text); }
+.card:hover h3 a { color: var(--accent); }
+
+.card p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 15px;
+  flex: 1;
+}
+
+.more {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  align-self: flex-start;
+}
+.more::after { content: " \203A"; }
+
+/* Product page */
+
+.product-head { padding: 48px 0 8px; }
+
+.product-head h1 {
+  margin: 0 0 8px;
+  font-size: clamp(26px, 4.6vw, 36px);
+}
+
+.tagline {
+  margin: 0 0 24px;
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+.product-shot {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.prose p { max-width: 68ch; }
+.prose ul { max-width: 68ch; padding-left: 22px; }
+.prose li { margin-bottom: 8px; }
+
+.prose h3 {
+  font-size: 17px;
+  margin: 30px 0 10px;
+  color: var(--accent);
+}
+
+code, .code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 14px;
+}
+
+code {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+pre.code {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  overflow-x: auto;
+  margin: 18px 0;
+}
+pre.code code { background: none; border: 0; padding: 0; }
+
+/* Availability block, the only place with store links */
+
+.availability {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin: 36px 0 8px;
+}
+
+.availability h2 {
+  border: 0;
+  padding: 0;
+  margin: 0 0 14px;
+  font-size: 19px;
+}
+
+.availability ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.availability li {
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+}
+.availability li:first-child { border-top: 0; }
+
+.availability .where { font-weight: 600; min-width: 150px; }
+.availability .status { color: var(--muted); font-size: 15px; }
+
+/* Footer */
+
+.site-foot {
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+  padding: 28px 0 44px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.site-foot .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: space-between;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 15px;
+  text-decoration: none;
+}
+.back::before { content: "\2039  "; }
+
+@media (max-width: 560px) {
+  .site-nav { gap: 14px; font-size: 14px; }
+  .availability { padding: 18px; }
+  .availability .where { min-width: 0; }
+}

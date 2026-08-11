@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LocLayer, localize Unity without refactoring | Schnurbusch Games</title>
+<meta name="description" content="LocLayer is a runtime translation layer for Unity. No keys, no wrapper calls, no rewrite: it swaps your existing UI strings on screen.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Schnurbusch <span>Games</span></a>
+    <nav class="site-nav">
+      <a href="index.html#tools">Tools</a>
+      <a href="index.html#games">Games</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="product-head">
+    <h1>LocLayer</h1>
+    <p class="tagline">Localize without refactoring. No keys, no wrapper calls, no rewrite.</p>
+  </div>
+
+  <div class="product-shot">
+    <img src="img/loclayer.png" alt="LocLayer cover art" width="630" height="500">
+  </div>
+
+  <div class="prose">
+
+    <p>You want your game in three languages by Friday, not a migration to a
+       localization framework. LocLayer is a translation layer: your code keeps setting
+       UI strings exactly as it does today, and LocLayer swaps them on screen at runtime.</p>
+
+    <p>Register a language and add translations, either in code or from a CSV your
+       translator fills in Excel. The bundled scanner finds every TextMeshPro and uGUI
+       text and translates it live. Anything not translated yet simply stays in your
+       source language, so you can localize incrementally and ship at any point.</p>
+
+    <p>It was extracted from a shipped game, Famechaser, where this exact system
+       localized around a thousand strings without touching a single call site.</p>
+
+    <h3>What you get</h3>
+    <ul>
+      <li>Full C# source in four small assemblies, no DLLs and no dependencies beyond
+          uGUI and TextMeshPro</li>
+      <li>Auto scanner for TMP_Text and legacy Text: translates, tracks changes and
+          restores originals when you switch back. Input field text is skipped
+          automatically, and a LocIgnore component handles manual exclusions</li>
+      <li>Four stage matching: exact, affix tolerant, rich text segmentation, and regex
+          patterns for dynamic strings such as score lines, including evaluator hooks</li>
+      <li>CSV import built for translators: comma, semicolon and tab are auto detected,
+          quotes and line breaks are handled, and an editor tool exports all scene texts
+          as a ready to fill template</li>
+      <li>Any number of languages with any codes, persistence between sessions,
+          operating system language detection on first launch, and a language changed
+          event</li>
+      <li>Interactive demo that switches English to German, Spanish and French with one
+          click per language</li>
+      <li>Manual as PDF and Markdown, honest about the limits</li>
+    </ul>
+
+    <h3>What it is not</h3>
+    <p>A full asset localization suite with localized sprites, audio and plural rules.
+       It does one thing quickly: getting your existing string UI translated with
+       minimum effort.</p>
+
+    <h3>Requirements</h3>
+    <p>Unity 6 or newer, working with both input backends. TextMeshPro ships with the
+       uGUI package in Unity 6. Pure C#, works on all platforms including WebGL and
+       mobile.</p>
+
+  </div>
+
+  <div class="availability">
+    <h2>Where to get it</h2>
+    <ul>
+      <li>
+        <span class="where"><a href="https://schnurbusch.itch.io/loclayer">itch.io</a></span>
+        <span class="status">available now</span>
+      </li>
+      <li>
+        <span class="where">Unity Asset Store</span>
+        <span class="status">in review</span>
+      </li>
+    </ul>
+  </div>
+
+  <a class="back" href="index.html">All tools</a>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>Schnurbusch Games, Daniel Schnurbusch</span>
+    <span><a href="mailto:daniel.schnurbusch@web.de">daniel.schnurbusch@web.de</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
