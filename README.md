@@ -1,62 +1,29 @@
-# Schnurbusch Games, Website
+# Schnurbusch Games
 
-Statische Portfolio- und Produktseite. Zweck: eine Publisher-Website, die Unitys
-Content-Transparency-Regel **Abschnitt 1.7.2** erfüllt, nachdem ChipForge am
-11.08.2026 abgelehnt wurde, weil `schnurbusch.itch.io` als Website hinterlegt war.
+Source of [schnurbusch.github.io](https://schnurbusch.github.io), the site for the Unity
+tools and games I build as a solo developer.
 
-## Warum der Aufbau so ist
+Static HTML and CSS, no build step, no JavaScript, no dependencies. Served by GitHub Pages.
 
-Unity verbietet Marktplatz-Profile als Publisher-Website und verbietet Kauffunktionen
-auf der **Startseite**. Erlaubt sind eigene Seiten, bei denen die Kaufseiten eine Ebene
-tiefer liegen. Deshalb gilt hier:
+## What is on it
 
-- `index.html` enthält **keine** Store-Links, **keine** Preise, **keine** Kauf-Buttons.
-  Nur Produktname, eine Zeile Beschreibung und einen Link auf die Detailseite.
-- Die Store-Links stehen ausschließlich in den Detailseiten, im Block
-  „Where to get it" ganz unten.
-
-**Diese Trennung nicht aufweichen.** Kein „Jetzt kaufen" auf die Startseite, keine
-Preise in die Kacheln.
-
-## Dateien
-
-| Datei | Inhalt |
+| Page | |
 |---|---|
-| `index.html` | Startseite: Tools, Games, About |
-| `chipforge.html` `loclayer.html` `portraitfit.html` `hintonce.html` | Produktseiten |
-| `famechaser.html` | Spiel, plus woher die Tools stammen |
-| `style.css` | gemeinsames Stylesheet |
-| `img/` | Cover-Bilder, aus den `*_Publishing`-Ordnern kopiert |
+| `index.html` | Overview: tools, games, about |
+| `chipforge.html` | ChipForge, runtime chiptune SFX and music, no audio files |
+| `loclayer.html` | LocLayer, localization as a layer over existing UI |
+| `portraitfit.html` | PortraitFit, portrait WebGL template |
+| `hintonce.html` | HintOnce, first-time hints in one line, free |
+| `famechaser.html` | Famechaser, the game the tools came out of |
+| `style.css` | Shared stylesheet |
+| `img/` | Cover art |
 
-Farben identisch zur itch-Storefront: BG `#0f171b`, Panel `#16242c`, Text `#e6edf0`,
-Akzent `#59d9f2`. Kein Build-Schritt, keine Abhängigkeiten, kein JavaScript.
+## Structure
 
-## Lokal ansehen
+The landing page lists the products with a short description and a link to the detail page.
+Prices and store links live on the detail pages only, in the "Where to get it" block at the
+bottom. Keep it that way when adding a product.
 
-`index.html` doppelklicken. Mehr braucht es nicht.
+## Contact
 
-## Veröffentlichen über GitHub Pages
-
-Kostenlos, dauerhaft, ohne Kreditkarte. Ohne Git-Kenntnisse, rein über die Weboberfläche:
-
-1. Account auf <https://github.com> anlegen. Der Benutzername wird Teil der Adresse,
-   also einen wählen, den man auch in Bewerbungen zeigen mag.
-2. **New repository** anlegen, Name exakt `BENUTZERNAME.github.io`, Sichtbarkeit
-   **Public**, kein README ankreuzen.
-3. Im leeren Repository auf **uploading an existing file** klicken, dann den kompletten
-   Inhalt dieses Ordners hineinziehen, den Unterordner `img` inklusive. `README.md`
-   kann mit hoch, sie stört nicht.
-4. **Commit changes**.
-5. Nach ein bis zwei Minuten ist die Seite unter `https://BENUTZERNAME.github.io`
-   erreichbar.
-
-## Danach im Unity Publisher Portal
-
-Profil öffnen, im Feld für die Website die itch-Adresse durch die neue Adresse
-ersetzen, speichern. Erst dann die abgelehnten und wartenden Pakete erneut einreichen.
-
-## Pflege
-
-Sobald ein Paket im Asset Store freigegeben ist, in der jeweiligen Produktseite im
-Block „Where to get it" den Status `in review` durch einen Link auf die Asset-Store-Seite
-ersetzen.
+daniel.schnurbusch@web.de
