@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SettingsNow, a settings menu and key rebinding in one line | Schnurbusch Games</title>
+<meta name="description" content="SettingsNow gives a Unity game a full settings menu in one call, including key rebinding. Your own settings need one attribute on a variable you already have.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Schnurbusch <span>Games</span></a>
+    <nav class="site-nav">
+      <a href="index.html#tools">Tools</a>
+      <a href="index.html#games">Games</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="product-head">
+    <h1>SettingsNow</h1>
+    <p class="tagline">A settings menu in one line, key rebinding included.</p>
+  </div>
+
+  <div class="product-shot">
+    <img src="img/settingsnow.png" alt="SettingsNow cover art" width="630" height="500">
+  </div>
+
+  <div class="prose">
+
+    <p>Every game needs the same menu: volume, resolution, quality, language, and the
+       keys. It is a day of work that teaches you nothing, and it has to be done again in
+       the next project.</p>
+
+    <p>SettingsNow is that menu, minus the day:</p>
+
+    <pre class="code"><code>SettingsMenu.Show();</code></pre>
+
+    <p>That is the whole integration. No prefab to place, no canvas to configure, no
+       manager component and no scene file. The menu builds itself when it is first
+       needed, remembers what the player chose, and looks the same in every project.</p>
+
+    <h3>Your own settings, without registering them</h3>
+    <p>The part no other settings asset does. Put one attribute on a variable you already
+       have and it turns up in the menu, with the right control for its type:</p>
+
+    <pre class="code"><code>[UserSetting("Difficulty")] static float _difficulty = 0.5f;</code></pre>
+
+    <p>A float becomes a slider, an int a whole number slider, a bool a switch and an
+       enum a choice of its values. The value in your code is the default. There is no
+       registration call to forget and no list to keep in sync.</p>
+
+    <h3>What you get</h3>
+    <ul>
+      <li>Audio, display, quality and language groups, ready made</li>
+      <li>Key rebinding with conflict handling: assigning a key that is already taken
+          clears the old binding and says so</li>
+      <li>Gamepad navigation throughout, wired explicitly so nothing is unreachable</li>
+      <li>Rows that hide themselves where the platform makes them meaningless</li>
+      <li>Your own settings through one attribute, no registration</li>
+      <li>Full C# source, no DLLs</li>
+    </ul>
+
+    <h3>Requirements</h3>
+    <p>Unity 2021.3 or newer with uGUI and TextMeshPro. Key rebinding needs Unity's Input
+       System. Without it the package still compiles and simply leaves the Controls tab
+       out, and the menu works under both input paths.</p>
+
+    <p>Extracted from my shipped game Famechaser.</p>
+
+  </div>
+
+  <div class="availability">
+    <h2>Where to get it</h2>
+    <ul>
+      <li>
+        <span class="where">Unity Asset Store</span>
+        <span class="status">in review</span>
+      </li>
+    </ul>
+  </div>
+
+  <a class="back" href="index.html">All tools</a>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>Schnurbusch Games, Daniel Schnurbusch</span>
+    <span><a href="mailto:daniel.schnurbusch@web.de">daniel.schnurbusch@web.de</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

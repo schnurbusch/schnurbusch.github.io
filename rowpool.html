@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RowPool, virtualised lists for uGUI | Schnurbusch Games</title>
+<meta name="description" content="RowPool turns an ordinary Unity ScrollRect into a virtualised list. Only the rows on screen exist, however many entries there are. One call to Attach, full C# source.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Schnurbusch <span>Games</span></a>
+    <nav class="site-nav">
+      <a href="index.html#tools">Tools</a>
+      <a href="index.html#games">Games</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="product-head">
+    <h1>RowPool</h1>
+    <p class="tagline">Virtualised lists for uGUI. Only the rows on screen exist.</p>
+  </div>
+
+  <div class="product-shot">
+    <img src="img/rowpool.png" alt="RowPool cover art" width="630" height="500">
+  </div>
+
+  <div class="prose">
+
+    <p>A ScrollRect slows to a crawl long before your data does. Ten thousand rows means
+       ten thousand GameObjects, ten thousand layout passes and a frame time nobody wants
+       to look at.</p>
+
+    <p>RowPool fixes that without asking you to rebuild anything around it:</p>
+
+    <pre class="code"><code>RowPool.Attach(scrollRect, rowPrefab, data.Count,
+               (i, view) =&gt; view.GetComponent&lt;Row&gt;().Set(data[i]));</code></pre>
+
+    <p>That is the whole integration. No interface to implement, no delegate object, no
+       base class your row has to inherit from. Your prefab, the scripts on it and your
+       hierarchy stay exactly as they are. If you already have a ScrollRect filled by
+       hand, you already have everything.</p>
+
+    <h3>Why this one</h3>
+    <p>The established solutions in this category are good, and their own reviews say the
+       same thing about them: not a drop in replacement, two or three hours rewiring your
+       brain. They ask you to move your data behind their model. This one asks for one
+       line and leaves your code alone.</p>
+
+    <h3>What you get</h3>
+    <ul>
+      <li>Rows of different heights, either worked out from your data or measured from
+          the built row. With the first, a jump to entry 90,000 lands on entry 90,000 and
+          the scrollbar is honest from the first frame</li>
+      <li>Several prefabs in one list, each with its own pool, so a header never comes
+          back as an entry</li>
+      <li>Grids, with columns that divide the width between them or take a fixed size</li>
+      <li>Sideways lists, for an inventory strip or a card picker</li>
+      <li>Insert and remove that keep the reader's place: add ten entries above somebody
+          who is reading and they do not move</li>
+      <li>Chat behaviour that is right in both directions. New messages arrive and the
+          list follows them down, but only while the reader actually is at the bottom</li>
+      <li>Gamepad and keyboard focus that survives recycling, chained explicitly so a
+          press never lands on a row parked off screen</li>
+      <li>Full C# source, no DLLs, no dependencies beyond uGUI</li>
+    </ul>
+
+    <h3>Measured, not claimed</h3>
+    <p>Positions are worked out from the index and a prefix sum tree, never accumulated
+       while scrolling. Accumulating is what makes long lists drift out of place over a
+       long session, and drift is the defect that is hardest to spot and worst to live
+       with.</p>
+
+    <p>109 tests ship inside the package, editor only so they never enter a build. They
+       cover exactly the claims above: that a jump across ten thousand entries lands on
+       the pixel, that every visible index is realised exactly once at any scroll
+       position, and that the visible rows do not move while measured sizes are corrected
+       underneath them. You can run them yourself.</p>
+
+    <h3>What it is not</h3>
+    <p>A table framework and a data binding system. Sorting, filtering and column widths
+       are yours. A grid uses one cell size throughout, because a line of a grid is only
+       as big as its largest cell and that cannot be known without building every cell on
+       it. These limits are in the manual rather than left to be discovered.</p>
+
+    <h3>Requirements</h3>
+    <p>Unity 2021.3 or newer with uGUI. No other packages required and none referenced.
+       No shaders or materials, so every render pipeline works.</p>
+
+  </div>
+
+  <div class="availability">
+    <h2>Where to get it</h2>
+    <ul>
+      <li>
+        <span class="where">Unity Asset Store</span>
+        <span class="status">in review</span>
+      </li>
+      <li>
+        <span class="where">Unity Asset Store, RowPool Lite</span>
+        <span class="status">in review, free</span>
+      </li>
+    </ul>
+    <p class="section-note">RowPool Lite is the free version. It does the common case in full:
+       rows of one height, in a column, from one prefab. Moving up is a rename, because
+       both share the same API.</p>
+  </div>
+
+  <a class="back" href="index.html">All tools</a>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>Schnurbusch Games, Daniel Schnurbusch</span>
+    <span><a href="mailto:daniel.schnurbusch@web.de">daniel.schnurbusch@web.de</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
