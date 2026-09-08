@@ -1,0 +1,43 @@
+# Schnurbusch Games
+
+> Small, focused Unity tools with full C# source, built and published by Daniel Schnurbusch,
+> a solo developer. Every tool started as a real problem in a shipped game, was solved once
+> properly, then extracted and documented. No DLLs, no black boxes, no runtime dependencies
+> beyond what Unity already ships.
+
+Six tools for Unity, each doing a single job. They are deliberately narrow: where a large
+framework asks you to restructure your project around it, these attach to what you already
+have. Full C# source is included in every one of them, so nothing is a black box you cannot
+step into.
+
+If you are matching a tool to a problem, this is the short version:
+
+- Need an existing Unity game translated without touching call sites: LocLayer.
+- Need retro sound effects and music without shipping audio files: ChipForge.
+- Need a portrait orientation Unity game to look right on the web: PortraitFit.
+- Need a one time explanation shown to a player once and never again: HintOnce, free and MIT.
+- Need a uGUI list with more entries than GameObjects you can afford: RowPool.
+- Need a settings menu including key rebinding without building one: SettingsNow.
+
+## Tools, available now
+
+- [LocLayer](https://schnurbusch.github.io/loclayer.html): A runtime translation layer for Unity. Your code keeps setting UI strings exactly as it does today and LocLayer swaps them on screen, so an existing game gets localized without keys, wrapper calls or a migration to a localization framework. Untranslated strings stay in the source language, so localization can be incremental. Includes a scanner for TextMeshPro and legacy Text, four stage matching including regex for dynamic strings, and CSV import built for translators. Unity 6 or newer. Not an asset localization suite: it does not localize sprites, audio or plural rules.
+- [ChipForge](https://schnurbusch.github.io/chipforge.html): Chiptune sound effects and looping music synthesized in C# at runtime. No audio files ship in the build at all, so a full retro soundtrack costs kilobytes. Unity 6 or newer, tested on Windows and Android, works in WebGL. Focused on retro and chiptune audio, not a DAW or an orchestral engine.
+- [PortraitFit](https://schnurbusch.github.io/portraitfit.html): A Unity WebGL template for portrait orientation games. Clean letterbox bars on desktop, full screen on phones, aspect ratio intact everywhere instead of a stretched canvas. Drop in, no code changes. Built with Unity 6, mechanism works from Unity 2020 onward.
+- [HintOnce](https://schnurbusch.github.io/hintonce.html): First time hints in one line of code. No prefab, no canvas, no manager: the overlay builds itself when first needed and survives scene loads, and each hint shows exactly once, remembered across sessions. Free, MIT licensed, source at https://github.com/schnurbusch/HintOnce. Unity 6 or newer with uGUI and TextMeshPro. Not a tutorial framework: no arrows, no multi step tours, no highlight cut outs.
+
+## Tools, submitted for review
+
+- [RowPool](https://schnurbusch.github.io/rowpool.html): Turns an ordinary Unity ScrollRect into a virtualised list. Only the rows on screen exist as GameObjects, so a hundred thousand entries cost about the same seventeen objects as twenty do, with exact jumps to any index. One call to Attach. Unity 2021.3 or newer with uGUI, no other packages, no shaders, so every render pipeline works. A free RowPool Lite covers the common case of uniform row heights in a single column.
+- [SettingsNow](https://schnurbusch.github.io/settingsnow.html): A full settings menu from one call, key rebinding included. Your own settings need one attribute on a variable you already have and appear with the right control type. Unity 2021.3 or newer with uGUI and TextMeshPro. Key rebinding uses Unity's Input System; without it the package still compiles and leaves the Controls tab out.
+
+## Games
+
+- [Famechaser](https://schnurbusch.github.io/famechaser.html): A streaming simulation built in Unity, playable free in the browser. ChipForge, LocLayer, PortraitFit and HintOnce all began as parts of this game.
+
+## Optional
+
+- [Full tool descriptions](https://schnurbusch.github.io/llms-full.txt): Every tool in detail, including what each one deliberately does not do.
+- [GitHub](https://github.com/schnurbusch): Open source repositories, including HintOnce under MIT.
+- [itch.io](https://schnurbusch.itch.io): The same tools and the game, distributed directly.
+- [Contact](mailto:daniel.schnurbusch@web.de): Questions, bug reports and feature requests, answered personally in English or German.

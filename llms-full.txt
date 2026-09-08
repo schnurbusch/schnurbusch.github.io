@@ -1,0 +1,274 @@
+# Schnurbusch Games, full tool descriptions
+
+Unity tools and games by Daniel Schnurbusch, a solo developer. Every tool here started as a
+problem in one of his own projects, got solved once properly, and was then extracted and
+documented so it works elsewhere too. Full C# source in every one, no DLLs, no runtime
+dependencies beyond what Unity already ships.
+
+Each entry below is the complete description, including a section on what the tool
+deliberately does not do. Contact: daniel.schnurbusch@web.de
+
+## LocLayer
+
+URL: https://schnurbusch.github.io/loclayer.html
+
+Localize without refactoring. No keys, no wrapper calls, no rewrite.
+
+You want your game in three languages by Friday, not a migration to a localization framework. LocLayer is a translation layer: your code keeps setting UI strings exactly as it does today, and LocLayer swaps them on screen at runtime.
+
+Register a language and add translations, either in code or from a CSV your translator fills in Excel. The bundled scanner finds every TextMeshPro and uGUI text and translates it live. Anything not translated yet simply stays in your source language, so you can localize incrementally and ship at any point.
+
+It was extracted from a shipped game, Famechaser, where this exact system localized around a thousand strings without touching a single call site.
+
+### What you get
+
+- Full C# source in four small assemblies, no DLLs and no dependencies beyond uGUI and TextMeshPro
+- Auto scanner for TMP_Text and legacy Text: translates, tracks changes and restores originals when you switch back. Input field text is skipped automatically, and a LocIgnore component handles manual exclusions
+- Four stage matching: exact, affix tolerant, rich text segmentation, and regex patterns for dynamic strings such as score lines, including evaluator hooks
+- CSV import built for translators: comma, semicolon and tab are auto detected, quotes and line breaks are handled, and an editor tool exports all scene texts as a ready to fill template
+- Any number of languages with any codes, persistence between sessions, operating system language detection on first launch, and a language changed event
+- Interactive demo that switches English to German, Spanish and French with one click per language
+- Manual as PDF and Markdown, honest about the limits
+
+### What it is not
+
+A full asset localization suite with localized sprites, audio and plural rules. It does one thing quickly: getting your existing string UI translated with minimum effort.
+
+### Requirements
+
+Unity 6 or newer, working with both input backends. TextMeshPro ships with the uGUI package in Unity 6. Pure C#, works on all platforms including WebGL and mobile.
+
+### Where to get it
+
+- itch.io (https://schnurbusch.itch.io/loclayer): available now
+- Unity Asset Store (https://assetstore.unity.com/packages/tools/localization/loclayer-localize-without-refactoring-394954): available now
+
+## ChipForge
+
+URL: https://schnurbusch.github.io/chipforge.html
+
+Procedural retro SFX and music for Unity. Every sound, zero audio files.
+
+ChipForge synthesizes retro style sound effects and looping background music directly on the device. Sounds are small data assets you tweak in the inspector and preview instantly, without entering play mode. Nothing is baked to disk, so your build carries no audio files at all.
+
+### Sound effects
+
+- Five waveforms: sine, square, triangle, saw, noise
+- Pitch sweeps for lasers, jumps and power ups
+- Colored noise for explosions and impacts
+- Twelve ready made presets including Coin, Jump, Laser, Explosion and Fanfare
+
+### Music
+
+- Seamless loops from chord progressions: pad, bass, arpeggio and a soft kick
+- Six mood presets: Menu, Calm, Chill, Dark, Epic, Energetic
+- Automatic crossfade between moods, so menu to gameplay to combat just works
+
+### Zero friction
+
+- One line of code to play anything
+- No scene setup, no prefabs, no dependencies
+- Volume and mute persistence built in
+- Renders at the device sample rate, which fixes the classic silent on 48 kHz Android devices problem
+
+### Who it is for
+
+Game jammers, prototypers, solo developers without a sound budget, and anyone who wants a fully controllable audio layer with zero asset weight.
+
+### Requirements
+
+Unity 6 or newer. Pure C# with full source included, tested on Windows and Android. It is focused on retro and chiptune style audio, not a full DAW or an orchestral music engine, and that focus is what keeps it small and simple.
+
+### Where to get it
+
+- itch.io (https://schnurbusch.itch.io/chipforge): available now
+- Unity Asset Store (https://assetstore.unity.com/packages/tools/audio/chipforge-procedural-retro-sfx-music-zero-audio-files-386476): available now
+
+## PortraitFit
+
+URL: https://schnurbusch.github.io/portraitfit.html
+
+Ship your portrait Unity game on the web without distortion.
+
+Your Unity game is portrait, built for phones at 9:16, but Unity's default WebGL page assumes landscape. On the web the result is a game that is squeezed, distorted or tiny. PortraitFit fixes that with one file.
+
+### What it does
+
+- On desktop browsers your game renders as a centered portrait column with clean letterbox bars, with no distortion
+- On phones the game fills the whole screen, or strictly keeps its ratio, whichever you choose
+- Minimal loading screen with title and progress bar, colors configurable
+- Optional built in fullscreen button for self hosting, since portals usually provide their own
+
+### Setup in three steps
+
+- Import the package, or copy one folder into your project
+- Player Settings, then Resolution and Presentation, then WebGL Template, then PortraitFit
+- Build
+
+### Configuration
+
+Everything sits in two clearly marked config blocks at the top of `index.html`: aspect ratio, which defaults to 9:16 but accepts any ratio, fill behavior on phones, and the colors for background, bars and loading screen. Plain HTML, CSS and JavaScript, no build tools and no dependencies.
+
+### Battle tested
+
+This template ships with my own game Famechaser, on desktop and mobile.
+
+### Requirements
+
+Built and tested with Unity 6. The template mechanism itself works the same way from Unity 2020 onward. It works anywhere your `index.html` is served directly, on your own site or on most portals. Portals that wrap games in their own player ignore custom templates entirely, which is a platform limitation rather than a PortraitFit one.
+
+### Where to get it
+
+- itch.io (https://schnurbusch.itch.io/portraitfit): available now
+- Unity Asset Store (https://assetstore.unity.com/packages/tools/utilities/portraitfit-portrait-webgl-template-for-unity-395204): available now
+
+## HintOnce
+
+URL: https://schnurbusch.github.io/hintonce.html
+
+First time hints with one line of code. Free, with full C# source.
+
+Every game has to explain itself the first time a player opens the shop, the map or the inventory. Building that normally means a prefab, a canvas, a manager and a flag that remembers whether the player has seen it, all for a card with two lines of text.
+
+HintOnce is that card, minus the work:
+
+That is the whole integration. The first time this line runs, a styled hint card appears over your game. Every later time it does nothing. There is no prefab to place and no canvas to configure: the overlay builds itself when it is first needed and survives scene loads.
+
+### What you get
+
+- A one line API, which is the entire integration
+- Shows once per id, remembered across sessions
+- Optional callback that also fires for hints already seen, so coroutine chains never stall
+- Several hints fired in the same frame queue up instead of overwriting each other
+- Full theming: colors, badge and button labels, card size and sorting order, with dark and light themes included
+- Events for audio and analytics, with no dependency on any specific audio system
+- Reset for a single hint and reset all for a new game, plus an editor command
+- Interactive demo that builds its user interface at runtime
+- Full C# source, no DLLs, no external dependencies
+
+### What it is not
+
+A tutorial framework. There are no arrows pointing at buttons, no multi step tours and no highlight cut outs. It covers the common case, explaining one thing once, in a single line.
+
+### Requirements
+
+Unity 6 or newer with uGUI and TextMeshPro, both of which ship with Unity 6. It works on all platforms including WebGL and mobile, with both input backends.
+
+Extracted from my shipped game Famechaser, where it explains day planning, the studio and the shop the first time each is opened.
+
+### Where to get it
+
+- itch.io (https://schnurbusch.itch.io/hintonce): available now, free
+- Unity Asset Store (https://assetstore.unity.com/packages/tools/gui/hintonce-first-time-hints-with-one-line-of-code-396738): available now, free
+
+Source: https://github.com/schnurbusch/HintOnce, MIT licensed.
+
+## RowPool
+
+URL: https://schnurbusch.github.io/rowpool.html
+
+Virtualised lists for uGUI. Only the rows on screen exist.
+
+A ScrollRect slows to a crawl long before your data does. Ten thousand rows means ten thousand GameObjects, ten thousand layout passes and a frame time nobody wants to look at.
+
+RowPool fixes that without asking you to rebuild anything around it:
+
+That is the whole integration. No interface to implement, no delegate object, no base class your row has to inherit from. Your prefab, the scripts on it and your hierarchy stay exactly as they are. If you already have a ScrollRect filled by hand, you already have everything.
+
+### Why this one
+
+The established solutions in this category are good, and their own reviews say the same thing about them: not a drop in replacement, two or three hours rewiring your brain. They ask you to move your data behind their model. This one asks for one line and leaves your code alone.
+
+### What you get
+
+- Rows of different heights, either worked out from your data or measured from the built row. With the first, a jump to entry 90,000 lands on entry 90,000 and the scrollbar is honest from the first frame
+- Several prefabs in one list, each with its own pool, so a header never comes back as an entry
+- Grids, with columns that divide the width between them or take a fixed size
+- Sideways lists, for an inventory strip or a card picker
+- Insert and remove that keep the reader's place: add ten entries above somebody who is reading and they do not move
+- Chat behaviour that is right in both directions. New messages arrive and the list follows them down, but only while the reader actually is at the bottom
+- Gamepad and keyboard focus that survives recycling, chained explicitly so a press never lands on a row parked off screen
+- Full C# source, no DLLs, no dependencies beyond uGUI
+
+### Measured, not claimed
+
+Positions are worked out from the index and a prefix sum tree, never accumulated while scrolling. Accumulating is what makes long lists drift out of place over a long session, and drift is the defect that is hardest to spot and worst to live with.
+
+109 tests ship inside the package, editor only so they never enter a build. They cover exactly the claims above: that a jump across ten thousand entries lands on the pixel, that every visible index is realised exactly once at any scroll position, and that the visible rows do not move while measured sizes are corrected underneath them. You can run them yourself.
+
+### What it is not
+
+A table framework and a data binding system. Sorting, filtering and column widths are yours. A grid uses one cell size throughout, because a line of a grid is only as big as its largest cell and that cannot be known without building every cell on it. These limits are in the manual rather than left to be discovered.
+
+### Requirements
+
+Unity 2021.3 or newer with uGUI. No other packages required and none referenced. No shaders or materials, so every render pipeline works.
+
+### Where to get it
+
+- Unity Asset Store: in review
+- Unity Asset Store, RowPool Lite: in review, free
+
+RowPool Lite is the free version. It does the common case in full: rows of one height, in a column, from one prefab. Moving up is a rename, because both share the same API.
+
+## SettingsNow
+
+URL: https://schnurbusch.github.io/settingsnow.html
+
+A settings menu in one line, key rebinding included.
+
+Every game needs the same menu: volume, resolution, quality, language, and the keys. It is a day of work that teaches you nothing, and it has to be done again in the next project.
+
+SettingsNow is that menu, minus the day:
+
+That is the whole integration. No prefab to place, no canvas to configure, no manager component and no scene file. The menu builds itself when it is first needed, remembers what the player chose, and looks the same in every project.
+
+### Your own settings, without registering them
+
+The part no other settings asset does. Put one attribute on a variable you already have and it turns up in the menu, with the right control for its type:
+
+A float becomes a slider, an int a whole number slider, a bool a switch and an enum a choice of its values. The value in your code is the default. There is no registration call to forget and no list to keep in sync.
+
+### What you get
+
+- Audio, display, quality and language groups, ready made
+- Key rebinding with conflict handling: assigning a key that is already taken clears the old binding and says so
+- Gamepad navigation throughout, wired explicitly so nothing is unreachable
+- Rows that hide themselves where the platform makes them meaningless
+- Your own settings through one attribute, no registration
+- Full C# source, no DLLs
+
+### Requirements
+
+Unity 2021.3 or newer with uGUI and TextMeshPro. Key rebinding needs Unity's Input System. Without it the package still compiles and simply leaves the Controls tab out, and the menu works under both input paths.
+
+Extracted from my shipped game Famechaser.
+
+### Where to get it
+
+- Unity Asset Store: in review
+
+## Famechaser
+
+URL: https://schnurbusch.github.io/famechaser.html
+
+Become the next big streamer and win the tug of war for viewers, followers and fame.
+
+Famechaser is a streaming simulation built in Unity and playable directly in the browser. You plan your days, pick what to stream, spend what you earn on gear and upgrades, and try to grow an audience faster than it drifts away again.
+
+It is a solo project: design, code, balancing and user interface. The game is portrait first, runs on desktop and on phones, and is fully localized.
+
+### What came out of it
+
+Every tool on this site started here, as a problem this game had:
+
+- ChipForge (chipforge.html) gave the game a full audio layer without shipping a single audio file
+- LocLayer (loclayer.html) localized roughly a thousand strings without touching a single call site
+- PortraitFit (portraitfit.html) is the WebGL template the game runs on, in portrait, without distortion
+- HintOnce (hintonce.html) explains day planning, the studio and the shop the first time each one is opened
+
+Each of them was rewritten to stand on its own, tested outside the game and documented before release. Shipping the game first is what makes them worth using.
+
+### Where to get it
+
+- itch.io (https://schnurbusch.itch.io/famechaser): playable in the browser
