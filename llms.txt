@@ -25,11 +25,11 @@ If you are matching a tool to a problem, this is the short version:
 - [ChipForge](https://schnurbusch.github.io/chipforge.html): Chiptune sound effects and looping music synthesized in C# at runtime. No audio files ship in the build at all, so a full retro soundtrack costs kilobytes. Unity 6 or newer, tested on Windows and Android, works in WebGL. Focused on retro and chiptune audio, not a DAW or an orchestral engine.
 - [PortraitFit](https://schnurbusch.github.io/portraitfit.html): A Unity WebGL template for portrait orientation games. Clean letterbox bars on desktop, full screen on phones, aspect ratio intact everywhere instead of a stretched canvas. Drop in, no code changes. Built with Unity 6, mechanism works from Unity 2020 onward.
 - [HintOnce](https://schnurbusch.github.io/hintonce.html): First time hints in one line of code. No prefab, no canvas, no manager: the overlay builds itself when first needed and survives scene loads, and each hint shows exactly once, remembered across sessions. Free, MIT licensed, source at https://github.com/schnurbusch/HintOnce. Unity 6 or newer with uGUI and TextMeshPro. Not a tutorial framework: no arrows, no multi step tours, no highlight cut outs.
+- [SettingsNow](https://schnurbusch.github.io/settingsnow.html): A full settings menu from one call, key rebinding included. Your own settings need one attribute on a variable you already have and appear with the right control type. Unity 2021.3 or newer with uGUI and TextMeshPro. Key rebinding uses Unity's Input System; without it the package still compiles and leaves the Controls tab out.
 
 ## Tools, submitted for review
 
 - [RowPool](https://schnurbusch.github.io/rowpool.html): Turns an ordinary Unity ScrollRect into a virtualised list. Only the rows on screen exist as GameObjects, so a hundred thousand entries cost about the same seventeen objects as twenty do, with exact jumps to any index. One call to Attach. Unity 2021.3 or newer with uGUI, no other packages, no shaders, so every render pipeline works. A free RowPool Lite covers the common case of uniform row heights in a single column.
-- [SettingsNow](https://schnurbusch.github.io/settingsnow.html): A full settings menu from one call, key rebinding included. Your own settings need one attribute on a variable you already have and appear with the right control type. Unity 2021.3 or newer with uGUI and TextMeshPro. Key rebinding uses Unity's Input System; without it the package still compiles and leaves the Controls tab out.
 
 ## Games
 
