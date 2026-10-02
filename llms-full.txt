@@ -206,10 +206,7 @@ Unity 2021.3 or newer with uGUI. No other packages required and none referenced.
 
 ### Where to get it
 
-- Unity Asset Store: in review
-- Unity Asset Store, RowPool Lite: in review, free
-
-RowPool Lite is the free version. It does the common case in full: rows of one height, in a column, from one prefab. Moving up is a rename, because both share the same API.
+- Unity Asset Store (https://assetstore.unity.com/packages/tools/gui/rowpool-recycling-scroll-view-for-ugui-401652): available now
 
 ## SettingsNow
 

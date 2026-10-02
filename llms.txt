@@ -29,7 +29,7 @@ If you are matching a tool to a problem, this is the short version:
 
 ## Tools, submitted for review
 
-- [RowPool](https://schnurbusch.github.io/rowpool.html): Turns an ordinary Unity ScrollRect into a virtualised list. Only the rows on screen exist as GameObjects, so a hundred thousand entries cost about the same seventeen objects as twenty do, with exact jumps to any index. One call to Attach. Unity 2021.3 or newer with uGUI, no other packages, no shaders, so every render pipeline works. A free RowPool Lite covers the common case of uniform row heights in a single column.
+- [RowPool](https://schnurbusch.github.io/rowpool.html): Turns an ordinary Unity ScrollRect into a virtualised list. Only the rows on screen exist as GameObjects, so a hundred thousand entries cost about the same seventeen objects as twenty do, with exact jumps to any index. One call to Attach. Unity 2021.3 or newer with uGUI, no other packages, no shaders, so every render pipeline works.
 
 ## Games
 
